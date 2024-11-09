@@ -1,0 +1,31 @@
+ER Diagram Description
+CustomerDetails:
+    UserId (Primary Key)
+    Name
+    Gender
+    Phone
+InvoiceDetails:
+    InvoiceNumber (Primary Key)
+    UserId (Foreign Key referencing CustomerDetails.UserId)
+    InvoiceDate
+    InvoiceAmount
+InventoryDetails:
+    ItemCode (Primary Key)
+    ItemName
+    ItemCategory
+    ItemGender
+InvoiceItemDetails (to handle the many-to-many relationship between invoices and items):
+    InvoiceNumber (Foreign Key referencing InvoiceDetails.InvoiceNumber)
+    ItemCode (Foreign Key referencing InventoryDetails.ItemCode)
+    ItemUnit
+ItemDetails (to handle the details of each item):
+    ItemCode (Foreign Key referencing InventoryDetails.ItemCode)
+    ItemSize
+    ItemValue
+
+
+Relationships
+    CustomerDetails to InvoiceDetails: One-to-Many (One customer can have multiple invoices)
+    InvoiceDetails to InvoiceItemDetails: One-to-Many (One invoice can have multiple items)
+    InventoryDetails to InvoiceItemDetails: One-to-Many (One item can be part of multiple invoices)
+    InventoryDetails to ItemDetails: One-to-Many (One item can have multiple sizes and values)

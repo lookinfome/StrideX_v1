@@ -1,0 +1,26 @@
+==================================
+Basic features and functionalities
+==================================
+
+1. admin page: fetch details about items/products of company in list
+2. purchase biling page: order stocks from company wholesale (with calculated bills)
+3. admin page: can fetch details about items in his local store (based on purchase (stock in) and sell (stock out) record)
+4. admin page: can generate report of business yearly, monthly, weekly.
+5. sell billing page: can generate bills once product is selected to be sold out to customer, meanwhile updating the stock details of shop 
+6. login page
+7. admin page: emplyee details with roles table with crud operations
+
+====================================
+Add-Ons features and functionalities
+====================================
+
+1. Customer Management: A page to manage customer details, including contact information, purchase history, and preferences. This can help in personalized marketing and customer service.
+2. Inventory Alerts: Automated alerts for low stock levels to help the owner manage inventory more efficiently.
+3. Discount and Promotions Management: A feature to create and manage discounts, promotions, and special offers. This can be useful for sales events and customer retention.
+4. Feedback and Reviews: A section where customers can leave feedback and reviews about products. This can help in improving product offerings and customer satisfaction.
+5. Analytics Dashboard: A comprehensive dashboard that provides insights into sales trends, customer behavior, and inventory status. This can help in making informed business decisions.
+6. Supplier Management: A module to manage supplier details and track orders from suppliers. This can streamline the procurement process.
+7. Multi-language Support: If the franchise operates in regions with different languages, adding multi-language support can enhance accessibility.
+8. Mobile App Integration: Consider developing a mobile app version of the application for on-the-go access and management.
+9. Role-Based Access Control: Enhance security by implementing role-based access control, ensuring that only authorized personnel can access certain features.
+10. Notifications and Reminders: Implement notifications and reminders for important tasks, such as restocking, upcoming promotions, or pending orders.

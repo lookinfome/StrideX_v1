@@ -1,0 +1,74 @@
+Create Tables
+=============
+
+CREATE TABLE CustomerDetails (
+    UserId TEXT PRIMARY KEY,
+    Name TEXT NOT NULL,
+    Gender TEXT NOT NULL,
+    Phone TEXT NOT NULL
+);
+
+CREATE TABLE InvoiceDetails (
+    InvoiceNumber TEXT PRIMARY KEY,
+    UserId TEXT NOT NULL,
+    InvoiceDate TEXT NOT NULL,
+    InvoiceAmount REAL NOT NULL,
+    FOREIGN KEY (UserId) REFERENCES CustomerDetails(UserId)
+);
+
+CREATE TABLE InventoryDetails (
+    ItemCode TEXT PRIMARY KEY,
+    ItemName TEXT NOT NULL,
+    ItemCategory TEXT NOT NULL,
+    ItemGender TEXT NOT NULL
+);
+
+CREATE TABLE InvoiceItemDetails (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    InvoiceNumber TEXT NOT NULL,
+    ItemCode TEXT NOT NULL,
+    ItemUnit INTEGER NOT NULL,
+    FOREIGN KEY (InvoiceNumber) REFERENCES InvoiceDetails(InvoiceNumber),
+    FOREIGN KEY (ItemCode) REFERENCES InventoryDetails(ItemCode)
+);
+
+CREATE TABLE ItemDetails (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ItemCode TEXT NOT NULL,
+    ItemSize TEXT NOT NULL,
+    ItemValue INTEGER NOT NULL,
+    FOREIGN KEY (ItemCode) REFERENCES InventoryDetails(ItemCode)
+);
+
+Insert Data
+===========
+
+INSERT INTO CustomerDetails (UserId, Name, Gender, Phone) VALUES
+('user1', 'Alice Johnson', 'Female', '1234567890'),
+('user2', 'Bob Smith', 'Male', '0987654321'),
+('user3', 'Charlie Brown', 'Male', '1122334455');
+
+INSERT INTO InvoiceDetails (InvoiceNumber, UserId, InvoiceDate, InvoiceAmount) VALUES
+('INV001', 'user1', '2024-11-01T10:00:00', 150.75),
+('INV002', 'user2', '2024-11-02T11:30:00', 200.50),
+('INV003', 'user3', '2024-11-03T14:45:00', 300.00);
+
+INSERT INTO InventoryDetails (ItemCode, ItemName, ItemCategory, ItemGender) VALUES
+('ITM001', 'T-Shirt', 'Clothing', 'Unisex'),
+('ITM002', 'Jeans', 'Clothing', 'Male'),
+('ITM003', 'Dress', 'Clothing', 'Female');
+
+INSERT INTO InvoiceItemDetails (InvoiceNumber, ItemCode, ItemUnit) VALUES
+('INV001', 'ITM001', 2),
+('INV001', 'ITM002', 1),
+('INV002', 'ITM003', 3),
+('INV003', 'ITM001', 1),
+('INV003', 'ITM003', 2);
+
+INSERT INTO ItemDetails (ItemCode, ItemSize, ItemValue) VALUES
+('ITM001', 'M', 50),
+('ITM001', 'L', 30),
+('ITM002', '32', 20),
+('ITM003', 'S', 15),
+('ITM003', 'M', 25);
+
