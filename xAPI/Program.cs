@@ -1,13 +1,28 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
+using xAPI.Models;
+using xAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+// service: controllers
 builder.Services.AddControllers();
 
+// service: token
+builder.Services.AddTransient<ITokenService, TokenService>();
+
+// service: account
+builder.Services.AddTransient<IAccountService, AccountService>();
+
+// service: SQLite AppDbContext
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// service: JWT bearer token
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -27,10 +42,8 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// service: authorization
 builder.Services.AddAuthorization();
-
-
-
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

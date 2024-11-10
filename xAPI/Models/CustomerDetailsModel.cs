@@ -3,22 +3,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace xAPI.Models
 {
-
+    // class: CustomerDetailsModel | properties for customer
     public class CustomerDetailsModel
     {
         [Key]
         [Required(ErrorMessage = "Username is required")]
-        public string UserId {get; set;} = "";
+        public string CustId {get; set;} = "";
         
         [Required(ErrorMessage = "Name is required")]
-        public string Name {get; set;} = "";
+        public string CustName {get; set;} = "";
         
         [Required(ErrorMessage = "Gender is required")]
-        public string Gender {get; set;} = "";
+        public string CustGender {get; set;} = "";
 
         [Required(ErrorMessage = "Phone is required")]
         [DataType(DataType.PhoneNumber)]
-        public string Phone {get; set;} = "";
+        public string CustPhone {get; set;} = "";
         
     }
 

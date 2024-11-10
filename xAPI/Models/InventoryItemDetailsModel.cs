@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace xAPI.Models
 {
-    public class ItemDetailsModel
+    // class: InventoryItemDetailsModel | properties for inventory items 
+    public class InventoryItemDetailsModel
     {
         [Key]
         public int InvntoryItemId { get; set; }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace xAPI.Models
 {
+    // class: InvoiceDetailsModel | properties for invoice
     public class InvoiceDetailsModel
     {
         [Key]
