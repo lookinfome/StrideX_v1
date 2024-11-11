@@ -18,6 +18,9 @@ builder.Services.AddTransient<ITokenService, TokenService>();
 // service: account
 builder.Services.AddTransient<IAccountService, AccountService>();
 
+// service: employee
+builder.Services.AddTransient<IEmployeeService, EmployeeService>();
+
 // service: SQLite AppDbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));

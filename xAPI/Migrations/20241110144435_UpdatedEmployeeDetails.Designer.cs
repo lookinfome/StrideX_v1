@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using xAPI.Models;
 
@@ -10,9 +11,11 @@ using xAPI.Models;
 namespace xAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241110144435_UpdatedEmployeeDetails")]
+    partial class UpdatedEmployeeDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
@@ -73,24 +76,6 @@ namespace xAPI.Migrations
                     b.HasKey("EmpId");
 
                     b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("xAPI.Models.EmployeeSalesPerformanceDetailsModel", b =>
-                {
-                    b.Property<string>("SalesId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("EmpId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SalesCount")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("SalesId");
-
-                    b.ToTable("EmployeeSalesPerformance");
                 });
 
             modelBuilder.Entity("xAPI.Models.InventoryDetailsModel", b =>

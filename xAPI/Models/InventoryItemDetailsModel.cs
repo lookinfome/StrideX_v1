@@ -16,7 +16,10 @@ namespace xAPI.Models
         public string ItemSize { get; set; } = "";
 
         [Required(ErrorMessage = "Item value is required")]
-        public int ItemValue { get; set; } = 0;
+        public int ItemPrice { get; set; } = 0;
+
+        [Required(ErrorMessage = "Item units available count is required")]
+        public int ItemUnitsAvailable {get; set;}
     }
 
 }

@@ -14,5 +14,6 @@ namespace xAPI.Models
         public DbSet<InvoiceItemDetailsModel> InvoiceItems { get; set; }
         public DbSet<InventoryItemDetailsModel> InventoryItems { get; set; }
         public DbSet<EmployeeDetailsModel> Employees {get; set;}
+        public DbSet<EmployeeSalesPerformanceDetailsModel> EmployeeSalesPerformance {get; set;}
     }
 }

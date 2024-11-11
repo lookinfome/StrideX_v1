@@ -10,10 +10,7 @@ namespace xAPI.Controllers
     
     // class: TokenController | to handle HTTP requests based on business logic
     public class TokenController : ControllerBase
-    {
-        // variable: SQLite Db context
-        private readonly AppDbContext _stridexDBContext;
-        
+    {   
         // variable: token service | to access services
         private readonly ITokenService _tokenService;
 
@@ -21,9 +18,8 @@ namespace xAPI.Controllers
         private readonly IAccountService _accountService;
         
         // constructor: TokenController | to initialize class variables
-        public TokenController(AppDbContext stridexDBContext, ITokenService tokenService, IAccountService accountService)
+        public TokenController(ITokenService tokenService, IAccountService accountService)
         {
-            _stridexDBContext = stridexDBContext;
             _tokenService = tokenService;
             _accountService = accountService;
         }
@@ -49,5 +45,6 @@ namespace xAPI.Controllers
 
             return NotFound(new {token = string.Empty});
         }
+
     }
 }
